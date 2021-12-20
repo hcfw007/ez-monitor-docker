@@ -1,0 +1,8 @@
+FROM node:16
+
+RUN git clone https://github.com/X-Profiler/xprofiler-console
+WORKDIR /xprofiler-console
+RUN npm install
+COPY ./config.local.js /xprofiler-console/config/
+
+CMD npm start
