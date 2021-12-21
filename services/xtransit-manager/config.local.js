@@ -43,10 +43,7 @@ module.exports = () => {
     },
   };
 
-
   config.xprofilerConsole = process.env.CONSOLE_ENDPOINT;
-
-  config.xtransitManager = process.env.MANAGER_ENDPOINT;
-
+  
   return config;
 };
