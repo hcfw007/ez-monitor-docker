@@ -23,9 +23,9 @@ services:
     container_name: xprofiler-console
     restart: always
     env_file:
-      - ./ez-monitor-env/mysql.env
-      - ./ez-monitor-env/redis.env
-      - ./ez-monitor-env/endpoints.env
+      - ./env/mysql.env
+      - ./env/redis.env
+      - ./env/endpoints.env
     networks:
       - backend
     ports:
@@ -36,10 +36,10 @@ services:
     container_name: xtransit-manager
     restart: always
     env_file:
-      - ./ez-monitor-env/mysql.env
-      - ./ez-monitor-env/redis.env
-      - ./ez-monitor-env/mail.env
-      - ./ez-monitor-env/endpoints.env
+      - ./env/mysql.env
+      - ./env/redis.env
+      - ./env/mail.env
+      - ./env/endpoints.env
     networks:
       - backend
 
@@ -48,7 +48,7 @@ services:
     container_name: xtransit-server
     restart: always
     env_file:
-      - ./ez-monitor-env/endpoints.env
+      - ./env/endpoints.env
     networks:
       - backend
     ports:
