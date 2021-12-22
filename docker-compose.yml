@@ -8,52 +8,49 @@ services:
       - backend
 
   mysql:
-    image: wtfsql
+    image: hcfw007/ez-monitor-mysql
     container_name: mysql
     restart: always
     environment:
       - MYSQL_ROOT_PASSWORD=whatsoever
+    volumes:
+      - /var/lib/mysql:/var/lib/mysql
     networks:
       - backend
 
   xprofiler-console:
-    image: wtfconsole
+    image: hcfw007/xprofiler-console
     container_name: xprofiler-console
     restart: always
     env_file:
-      - ./env/mysql.env
-      - ./env/redis.env
-      - ./env/endpoints.env
+      - ./ez-monitor-env/mysql.env
+      - ./ez-monitor-env/redis.env
+      - ./ez-monitor-env/endpoints.env
     networks:
       - backend
     ports:
       - 7443:7443
 
   xtransit-manager:
-    image: wtfmanager
+    image: hcfw007/xtransit-manager
     container_name: xtransit-manager
     restart: always
     env_file:
-      - ./env/mysql.env
-      - ./env/redis.env
-      - ./env/mail.env
-      - ./env/endpoints.env
+      - ./ez-monitor-env/mysql.env
+      - ./ez-monitor-env/redis.env
+      - ./ez-monitor-env/mail.env
+      - ./ez-monitor-env/endpoints.env
     networks:
       - backend
 
   xtransit-server:
-    image: wtfserver
+    image: hcfw007/xtransit-server
     container_name: xtransit-server
     restart: always
     env_file:
-      - ./env/endpoints.env
+      - ./ez-monitor-env/endpoints.env
     networks:
       - backend
     ports:
       - 9090:9090
-
-
-networks:
-  backend:
-    name: backend
-    driver: bridge
+      
