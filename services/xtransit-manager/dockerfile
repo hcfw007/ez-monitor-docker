@@ -6,4 +6,4 @@ RUN npm install
 COPY ./env /xtransit-manager/config/
 COPY ./config.local.js /xtransit-manager/config/
 
-CMD npx egg-scripts start --title=egg-server-xtransit-manager --port=7543 --workers=4
+CMD npx egg-scripts start --title=egg-server-xtransit-manager --port=7543

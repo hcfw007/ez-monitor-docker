@@ -1,10 +1,9 @@
 FROM node:16
 
-RUN npm install pm2 -g
 RUN git clone https://github.com/X-Profiler/xtransit-server
 WORKDIR /xtransit-server
 RUN npm install
 COPY ./env /xtransit-server/config/
 COPY ./config.local.js /xtransit-server/config/
 
-CMD npx pm2 kill && pm2 start --no-daemon --name xtransit-server dispatch.js
+CMD npx egg-scripts start --title=egg-server-xtransit-server --port=9090

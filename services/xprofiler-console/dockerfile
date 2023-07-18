@@ -6,4 +6,4 @@ RUN npm install
 COPY ./env /xprofiler-console/config/
 COPY ./config.local.js /xprofiler-console/config/
 
-CMD npx egg-scripts start --title=egg-server-xprofiler-console --port=7443 --workers=4
+CMD npx egg-scripts start --title=egg-server-xprofiler-console --port=7443

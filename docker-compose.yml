@@ -32,7 +32,7 @@ services:
       - 7443:7443
 
   xtransit-manager:
-    image: hcfw007/xtransit-manager
+    image: hcfw007/xprofiler-manager
     container_name: xtransit-manager
     restart: always
     env_file:
@@ -44,7 +44,7 @@ services:
       - backend
 
   xtransit-server:
-    image: hcfw007/xtransit-server
+    image: hcfw007/xprofiler-server
     container_name: xtransit-server
     restart: always
     env_file:
